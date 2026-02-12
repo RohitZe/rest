@@ -25,3 +25,24 @@ jobs:
 
     - name: build making
       run: npm run build
+
+  test:
+   runs-on: ubuntu-latest
+
+
+   strategy:
+     matrix: 
+       node-version: [ 20.x, 22.x]
+   
+   steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: installing dependencies
+      run: npm install
+
+    - name: testing
+      run: npm run test
