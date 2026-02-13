@@ -9,7 +9,7 @@ describe("Button Component", () => {
   });
 
   it("calls onClick when clicked", () => {
-    const handleClick = vi.fn();
+    const handleClick = vi.f();
 
     render(<Button label="Submit" onClick={handleClick} />);
     
